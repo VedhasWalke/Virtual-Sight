@@ -1,0 +1,55 @@
+const int trigpin = 9;
+const int echopin = 10;
+const int trigpin2 = 11;
+const int echopin2 = 12;
+int blue = 3;
+int red = 4;
+int green = 5;
+int state = digitalRead(5);
+double duration;
+double distance;
+double duration2;
+double distance2;
+
+void setup() {
+  pinMode(trigpin, OUTPUT);
+  pinMode(echopin, INPUT);
+  pinMode(green, OUTPUT);
+  pinMode(blue, OUTPUT);
+  pinMode(red, OUTPUT);
+  pinMode(echopin2, INPUT);
+  pinMode(trigpin2, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  
+  digitalWrite(trigpin, LOW);
+  delayMicroseconds(2);
+
+  digitalWrite(trigpin, HIGH);
+  delayMicroseconds(2);
+  digitalWrite(trigpin, LOW);
+
+  duration = pulseIn(echopin, HIGH);
+  distance = duration*0.017;
+
+  distance2 = pulseIn(echopin2, HIGH);
+  distance2 = duration2*0.017;
+
+  Serial.print("Distance1: ");
+  Serial.println(distance);
+  Serial.print("Distance2:");
+  Serial.print( distance2);
+  
+  if(distance<=100){
+    digitalWrite(green, HIGH);
+	digitalWrite(red, LOW);
+Digital 
+  }
+  else if (distance2<=100){
+    digitalWrite(green, LOW);
+  } else if (distance)
+  
+}
+
